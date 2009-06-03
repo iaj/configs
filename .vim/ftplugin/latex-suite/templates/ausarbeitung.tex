@@ -1,0 +1,101 @@
+<+	+>	!comp!	!exe!
+%        File: !comp!expand("%")!comp!
+%     Created: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+% Last Change: !comp!strftime("%a %b %d %I:00 %p %Y ").substitute(strftime('%Z'), '\<\(\w\)\(\w*\)\>\(\W\|$\)', '\1', 'g')!comp!
+%
+\documentclass[german,12pt]{article}
+
+% Mathepaket, Deutsch, besseres Verbatim, einstellbare Listen,
+% formatierbares Verbatim :
+
+\usepackage{amsmath,german,moreverb,enumerate,alltt,url}
+\usepackage[latin1]{inputenc} % latin1 input
+\usepackage{color}            % einfachere Farben
+\usepackage{graphicx}         % \includegraphics
+\usepackage{fancyhdr}         % Kopf- und Fu"szeilen
+\usepackage{tabularx}
+\usepackage{babel}
+\usepackage{subfigure}
+\headheight 70.0000pt
+
+\usepackage[style=long,border=none,header=plain,cols=3]{glossary}
+\makeglossary
+\renewcommand{\entryname}{K\"urzel}
+\renewcommand{\descriptionname}{Beschreibung}
+
+% hier Titel anpassen, dieser steht dann auf jeder Seite <FancyHeaders>
+\newcommand{\thetitle}{
+\LARGE{\textbf{ <+main topic+>}} \\
+\large \textbf{<+sub topic+>} \\
+\normalsize <+author(s)+>}
+
+\newcommand{\theauthor}{<+author+>}
+% addon TODO box .. zu verwenden mit \TODO{blablupp}
+\newcommand{\TODO}[1]{\colorbox{red}{{\textbf{TODO: }}{#1}}}
+
+\begin{document}
+
+\begin{titlepage}
+\center
+\Large <+titel+>\\
+\vspace{2em}
+\Huge
+\sffamily
+\textbf{<+topic+>}\\
+\vspace{2em}
+\Large
+<+author(s)+>\\
+\vspace{2em}
+<+date+>\\
+
+% hier das Logo angeben (hier die Athene im unterordner pics/)
+%\begin{center}
+%  \includegraphics[scale = 0.50]{pics/athene_sw.jpg}
+%\end{center}
+%\large
+Technische Universit\"at Darmstadt\\
+Fachbereich Informatik\\
+\vspace{1em}
+<+dozent+>\\
+\end{titlepage}
+
+\lhead[\thetitle]{\theauthor}
+\rhead[\theauthor]{\thetitle}
+%\cfoot{\thepage}
+
+%\renewcommand\thesection{Aufgabe~\arabic{section}}
+%\renewcommand\thesubsection{\arabic{section}.\arabic{subsection}}
+
+%\makeglossary
+
+\newpage
+%Inhaltsverzeichnis
+\tableofcontents
+\newpage
+
+\pagestyle{fancy}
+\pagenumbering{arabic}
+%hier sections anfuegen im stile von
+%\section{Einleitung}
+%\input{inhalt/01einleitung/einleitung.tex}
+%\newpage
+\section{Glossar}
+%\input{inhalt/glossar.tex}
+\newpage
+%---------------------------------------------------------------------------
+\section{Anhang}
+%\input{inhalt/anhang.tex}
+\newpage
+%---------------------------------------------------------------------------
+
+
+%\glossary{name=set,description=a collection of objects}
+
+% Dieses Command zum Erstellen des Glossars ausführen und danach nochmal kompilieren :
+% makeindex -t pflichtenheft.glg -o pflichtenheft.gls -s pflichtenheft.ist pflichtenheft.glo
+% nach
+% http://theoval.sys.uea.ac.uk/~nlct/latex/thesis/node25.html
+
+%\printglossary
+
+\end{document}

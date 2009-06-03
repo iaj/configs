@@ -1,0 +1,21 @@
+"" vim: set filetype=vim : ""
+function! Map(mode, ...)
+  if a:1== '<buffer>'
+    let buffer = '<buffer> '
+    let what = a:2
+    let args = a:000[2:]
+  else
+    let buffer = ''
+    let what = a:1
+    let args = a:000[1:]
+  endif
+  if !has('gui_running')
+    exec a:mode.'noremap '.buffer.substitute(substitute(what,'<m-\(.\)>','<esc>\1','g'),'<m-s-\(.\)>','<esc><s-\1>','g').' '.join(args,' ')
+  else
+    exec a:mode.'noremap '.buffer.what.' '.join(args,' ')
+  endif
+endfunction
+command! -nargs=* Noremap call Map('', <f-args>)
+command! -nargs=* Nnoremap call Map('n', <f-args>)
+command! -nargs=* Inoremap call Map('i', <f-args>)
+command! -nargs=* Vnoremap call Map('v', <f-args>)
