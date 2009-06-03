@@ -1,0 +1,35 @@
+" 1.2 (created: 2008/08/16 18:51:52)
+" Mappings
+map U :undo<Enter>
+map , gT
+map . gt
+map <C-l> :set nohlsearch
+" no u gt
+" map T :tabduplіcate<Enter>
+map e <Insert>
+"colorscheme sweets
+set showtabline=1
+set guioptions+=n
+"autocmd LocationChange .* :js modes.passAllKeys = /mail\.google\.com/.test(buffer.URL)
+"autocmd LocationChange .* :js modes.passAllKeys = /www\.google\.com\/reader\/view/.test(buffer.URL)
+"autocmd LocationChange .* :js modes.passAllKeys = /www\.google\.de\/reader\/view/.test(buffer.URL)
+"au LocationChange .* :set editor=gvim -f
+"au LocationChange mail\.google\.com :set editor=gvim -f -c 'set ft=mail'
+
+
+" Options
+"set preload
+"set showmode
+"set titlestring=Vimperator
+" set wildmode=list:full
+" set wildoptions=auto
+" set defsearch=google
+" set guioptions=T
+set complete=slf
+set editor='urxvt -e vim'
+"set focuscontent=1
+" Abbreviations
+" set goٍ=
+" source! ~/.vimperatorrc.local
+
+" vim: set ft=vimperator:
